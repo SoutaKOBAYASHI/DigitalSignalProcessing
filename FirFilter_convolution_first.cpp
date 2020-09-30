@@ -37,16 +37,16 @@ std::vector<std::complex<double>> dft(const std::vector<double>& data_vec, const
  */
 int main(int argv, char** argc)
 {
+    if(argv != 4 && argv != 2)
+    {
+        std::cout << "File name arguments are invalid.Please run this program with --help command to confirm arguments." << std::endl;
+        return -1;
+    }
     const std::string arg1_string = *(argc+1);
     if(argv == 2 && arg1_string.find("--help") != std::string::npos)
     {
         std::cout << "Usage: .\\a.exe [signal file path] [filter file path] [output file name]"  << std::endl;
         return 0;
-    }
-    else if(argv != 4)
-    {
-        std::cout << "File name arguments are invalid.Please run this program with --help command to confirm arguments." << std::endl;
-        return -1;
     }
 
     const char* const sig_file_name = *(argc + 1);
